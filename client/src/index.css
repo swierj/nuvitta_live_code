@@ -1,0 +1,158 @@
+:root {
+  /* colors */
+  --brand-color: #6f9672;
+  --heading-color: #525252;
+  --product-info-color: #343434;
+  --background-color: #edf4ec;
+  --services-color: #bad1af;
+  --bundle-color: #d4e3d5;
+  --bestsell-color: #b1c2b2;
+  /* new light:#edf4ec old one:#e1eedb navbar:#cbdac8*/
+  /* dimensions */
+  --max-width: 1300px;
+  --navbar-height: 7rem;
+  --footer-height-desk: 8rem;
+  --footer-height-mobile: 18rem;
+  --sidebar-transition: all 0.2s linear;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
+  word-spacing: 0.1rem;
+}
+
+body {
+  background-color: var(--background-color);
+  position: relative;
+  min-height: 100vh;
+}
+
+.page-content {
+  padding-bottom: var(--footer-height-mobile);
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: var(--heading-color);
+  letter-spacing: 0.2rem;
+}
+
+h2,
+h3 {
+  letter-spacing: 0.06rem;
+}
+
+h1,
+h2,
+h3 {
+  text-transform: capitalize;
+}
+
+p {
+  line-height: 1.75;
+  font-weight: 300;
+}
+
+.product-title {
+  color: var(--product-info-color);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  color: white;
+  background-color: var(--brand-color);
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  border: 0;
+  cursor: pointer;
+  text-transform: capitalize;
+  letter-spacing: 0.15rem;
+  transition: 1s;
+  font-weight: 600;
+}
+
+.btn:hover {
+  background: #374d39;
+  transition: 0.2s;
+}
+
+.page {
+  padding: 3rem 0;
+}
+
+.page-center {
+  width: 90vw;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.title {
+  text-align: center;
+}
+
+.underline {
+  width: 25%;
+  margin: 0.25rem auto;
+  height: 0.25rem;
+  background: var(--brand-color);
+}
+
+.hover-underline-animation {
+  display: flex;
+  position: relative;
+  color: var(--brand-color);
+}
+
+.hover-underline-animation::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 4px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--brand-color);
+  transform-origin: bottom left;
+  transition: transform 0.35s ease-out;
+}
+
+.hover-underline-animation:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+@media (min-width: 1024px) {
+  .page-content {
+    padding-bottom: var(--footer-height-desk);
+  }
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading {
+  width: 6rem;
+  height: 6rem;
+  margin: 0 auto;
+  margin-top: 10rem;
+  border-radius: 50%;
+  border: 4px solid #ccc;
+  border-top-color: var(--brand-color);
+  animation: spinner 0.6s linear infinite;
+}
