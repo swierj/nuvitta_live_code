@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import bannerImg from '../assets/nuvitta_bundle_4.png'
+import bannerImg from '../assets/woman-banner-1.png'
 import { links } from '../vars/links'
 
 export default function Banner() {
@@ -29,8 +29,16 @@ export default function Banner() {
 
 const BannerContainer = styled.section`
   min-height: 50vh;
-  display: grid;
-  place-items: center;
+  display: flex;
+  img {
+    display: block;
+    position: bottom;
+    transform: scale(1);
+  }
+  article {
+    display: block;
+    margin-top: 20%;
+  }
   h1 {
     margin-bottom: 2rem;
     color: var(--brand-color); /* either this or brand color #5d8062*/
@@ -59,12 +67,6 @@ const BannerContainer = styled.section`
   }
   @media (min-width: 1024px) {
     height: calc(100vh - var(--navbar-height));
-    grid-template-columns: 1fr 1fr;
-    img {
-      display: block;
-      max-width: 100%;
-      transform: scale(1.3);
-    }
     p {
       max-width: 80%;
     }
