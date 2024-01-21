@@ -2,7 +2,6 @@ import Navbar from './Navbar'
 import Footer from './Footer'
 import Sidebar from './Sidebar'
 import Banner from './Banner'
-import BestsellerProducts from './BestsellerProducts'
 import BundleProducts from './BundleProducts'
 import Services from './Services'
 import AboutStore from './AboutStore'
@@ -26,7 +25,6 @@ export {
   Footer,
   Sidebar,
   Banner,
-  BestsellerProducts,
   BundleProducts,
   Services,
   AboutStore,

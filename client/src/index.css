@@ -3,7 +3,8 @@
   --brand-color: #698d55;
   --heading-color: #525252;
   --product-info-color: #343434;
-  --background-color: #edf4ec;
+  /* #edf4ec original background color */
+  --background-color: white;
   --services-color: #bad1af;
   --bundle-color: #d4e3d5;
   --bestsell-color: #b1c2b2;
@@ -20,7 +21,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   word-spacing: 0.1rem;
 }
 

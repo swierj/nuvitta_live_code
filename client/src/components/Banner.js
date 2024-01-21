@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import bannerImg from '../assets/woman-banner-1.png'
+import bannerImg from '../assets/woman-banner-large.png'
 import { links } from '../vars/links'
 
 export default function Banner() {
   return (
-    <BannerContainer className='page-center'>
+    <BannerContainer className='banner-center'>
       <article>
         <h1>
           renew your skin <br />
@@ -22,7 +22,7 @@ export default function Banner() {
           </Link>
         </div>
       </article>
-      <img src={bannerImg} alt='banner' />
+      {/* <img src={bannerImg} alt='banner' /> */}
     </BannerContainer>
   )
 }
@@ -30,14 +30,20 @@ export default function Banner() {
 const BannerContainer = styled.section`
   min-height: 50vh;
   display: flex;
-  img {
+  background-image: url(${bannerImg});
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 90vw;
+  max-width: 1500px;
+  margin: 0 auto;
+  place-items: center;
+  /* img {
     display: block;
     position: bottom;
     transform: scale(1);
-  }
+  } */
   article {
     display: block;
-    margin-top: 20%;
   }
   h1 {
     margin-bottom: 2rem;
@@ -67,8 +73,11 @@ const BannerContainer = styled.section`
   }
   @media (min-width: 1024px) {
     height: calc(100vh - var(--navbar-height));
+    article {
+      margin-left: 125px;
+    }
     p {
-      max-width: 80%;
+      max-width: 55%;
     }
   }
 `

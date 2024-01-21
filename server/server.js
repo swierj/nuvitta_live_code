@@ -36,7 +36,7 @@ app.post('/create-checkout-session', async (req, res) => {
     ui_mode: 'embedded',
     line_items: lineItems,
     mode: 'payment',
-    return_url: `${process.env.testDOMAIN}/return?session_id={CHECKOUT_SESSION_ID}`,
+    return_url: `${process.env.DOMAIN}/return?session_id={CHECKOUT_SESSION_ID}`,
     billing_address_collection: 'required',
     shipping_address_collection: { allowed_countries: ['US', 'CA'] },
     custom_text: {

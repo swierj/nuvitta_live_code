@@ -2,9 +2,9 @@ import React from 'react'
 import {
   BackgroundImg,
   Banner,
-  BestsellerProducts,
   BundleProducts,
   Services,
+  BundleImg,
 } from '../components'
 
 export default function HomePage() {
@@ -14,7 +14,6 @@ export default function HomePage() {
       <BackgroundImg />
       <BundleProducts />
       <BackgroundImg />
-      <BestsellerProducts />
       <Services />
     </main>
   )

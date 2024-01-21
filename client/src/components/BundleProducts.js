@@ -1,10 +1,13 @@
 import React from 'react'
 import { useProductsContext } from '../functionality/ProductsContext'
+import { Link } from 'react-router-dom'
+import { links } from '../vars/links'
 import Error from './Error'
 import Loading from './Loading'
 import styled from 'styled-components'
 import ProductCard from './ProductCard'
 import img2 from '../assets/grass-background.jpg'
+import spaImg from '../assets/woman-leaves-bundle.png'
 
 export default function BundleProducts() {
   const {
@@ -20,9 +23,9 @@ export default function BundleProducts() {
   }
   return (
     <BundleContainer className='page'>
-      <div className='page-center background'>
+      <div className='page-center'>
         <div className='title'>
-          <h1>save on our bundles</h1>
+          <h1>Bestsellers</h1>
         </div>
         <div className='bestsell'>
           {bestsell.map((product) => {
@@ -30,32 +33,56 @@ export default function BundleProducts() {
           })}
         </div>
       </div>
+      <img src={spaImg} alt='bundle image' />
+      <div className='page-center bundles'>
+        <div className='title'>
+          <h1>bundles</h1>
+        </div>
+        <div className='bestsell'>
+          {bestsell.map((product) => {
+            return <ProductCard key={product.id} {...product} />
+          })}
+        </div>
+        <div className='btn-container'>
+          <Link to={links[1].url} className='btn'>
+            shop all products
+          </Link>
+        </div>
+      </div>
     </BundleContainer>
   )
 }
 
 const BundleContainer = styled.section`
+  /* 
   background-image: url(${img2});
   background-attachment: fixed;
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
+  margin-top: 2rem;
   h1 {
     text-align: center;
-    color: white;
-    font-weight: 700;
+    color: var(--brand-color);
+    font-weight: 400;
     font-size: 48px;
   }
-  .background {
+  img {
+    max-width: 100%;
+  }
+  /* .background {
     background-color: var(--bestsell-color);
     padding: 4rem;
     border-radius: 1rem;
+  } */
+  .bundles {
+    margin-top: 100px;
   }
   .bestsell {
-    margin: 4rem auto;
+    margin-bottom: 8rem;
+    margin-top: 4rem;
     display: grid;
     gap: 2rem;
     display: grid;
-    background-color: var(--bestsell-color);
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   }
   .btn {

@@ -48,7 +48,7 @@ const ProductContainer = styled.article`
     border-radius: 0.75rem;
     transition: 1s;
     margin-bottom: 0.5rem;
-    transform: scale(1.4);
+    transform: scale(1.2);
   }
   .link {
     position: absolute;

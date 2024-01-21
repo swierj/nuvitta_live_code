@@ -30,7 +30,7 @@ export default function Filters() {
           </div>
           {/*category filter bar*/}
           <div className='form-control'>
-            <h3>category</h3>
+            <h3>by category</h3>
             <div>
               {categories.map((c, index) => {
                 return (

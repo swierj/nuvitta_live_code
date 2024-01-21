@@ -11,7 +11,7 @@ export default function BackgroundImg() {
 }
 
 const BackgroundContainer = styled.section`
-  padding: 10rem;
+  padding: 15rem;
   background-image: url(${img2});
   background-attachment: fixed;
   background-size: cover;

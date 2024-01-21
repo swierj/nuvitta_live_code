@@ -1,60 +1,88 @@
 import React from 'react'
 import styled from 'styled-components'
-import img from '../assets/Woman-with-Leaf.png'
+import img from '../assets/products_about.jpg'
+import map from '../assets/map_of_redmond_wa.jpg'
 
 export default function AboutStore() {
   return (
-    <AboutContainer className='page page-center'>
-      <img src={img} alt='woman with leaf' />
-      <article>
-        <h1>about our store</h1>
-        <div className='underline'></div>
+    <AboutContainer className='page'>
+      <section className='product-description page-center'>
+        <article>
+          {/* <img src={map} className='redmond' alt='products about page' /> */}
+          <h1>our products...</h1>
+          <p>
+            Begin their journey in our facility in Redmond, Washington, where
+            they are carefully hand poured and packaged. We make it our priority
+            to produce organic and vegan NuVitta products that are also free of
+            harmful parabens and unnecessary toxic chemicals commonly found in
+            skincare products, such as petrochemicals and phthalates.
+          </p>
+          <p>
+            We pride ourselves in sourcing the highest quality ingredients,
+            worthy of your skin. Our products come infused with various natural
+            scents and oils to help rejuvenate your skin and give it the amazing
+            scents of our key ingredients. Each product is designed for certain
+            types of skins and skin routines, with all information on proper
+            application, benefits, ingredients, etc. found on our product page
+            and your product label!
+          </p>
+        </article>
+        <img src={img} alt='products about page' />
+      </section>
+
+      <section className='about-founder page-center'>
+        <h1>about the founder</h1>
         <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged. It was popularised in the 1960s with
-          the release of Letraset sheets containing Lorem Ipsum passages, and
-          more recently with desktop publishing software like Aldus PageMaker
-          including versions of Lorem Ipsum.
+          Ela started her skin care business, “NuFace Skincare” in 2008 in
+          Redmond, shortly after moving to the United States from Poland where
+          she had received a Master of Science at Lodz University and gone on to
+          start multiple businesses, always having a passion for skincare and
+          working with patients to a achieve healthy and rejuvenated skin.
         </p>
         <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged.
+          Since coming to the United States, Ela has gained many certifications
+          and licenses for various treatments. She has worked extensively on
+          obtaining permanent makeup and brow certifications in addition to
+          being licensed for skin care treatments such as facials and
+          hydrafacials. All of this, in addition to 15 years of experience and
+          thousands of procedures and satisfied clients, has made Ela an expert
+          in her field. After noticing patterns of her client's skin irritations
+          due to chemicals frequently found in mainstream skin care products,
+          Ela created her own skin care product brand in 2019 with a desire to
+          use the highest quality ingredients and make her products friendly to
+          all skin types, including sensitive ones. Ever since, Ela has applied
+          her products in her treatments and both her and her patients have seen
+          amazing results.
         </p>
-        <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged. It was popularised in the 1960s with
-          the release of Letraset sheets containing Lorem Ipsum passages, and
-          more recently with desktop publishing software like Aldus PageMaker
-          including versions of Lorem Ipsum.
-        </p>
-      </article>
+      </section>
     </AboutContainer>
   )
 }
 
 const AboutContainer = styled.section`
   margin-top: 2rem;
-  display: grid;
-  gap: 3rem;
-  img {
-    width: 100%;
-    display: block;
-    border-radius: 0.75rem;
+  .product-description {
+    display: grid;
+    gap: 3rem;
+    margin-bottom: 4rem;
+    img {
+      width: 100%;
+      display: block;
+      border-radius: 0.75rem;
+    }
+    .logo {
+      margin-left: 25%;
+      width: 40%;
+      margin-bottom: 50px;
+    }
+    .redmond {
+      width: 25%;
+    }
   }
   h1 {
+    margin-top: 4rem;
     text-align: center;
+    font-size: 30px;
   }
   p {
     margin-top: 1.5rem;
@@ -66,6 +94,8 @@ const AboutContainer = styled.section`
     }
   }
   @media (min-width: 1024px) {
-    grid-template-columns: 1fr 1fr;
+    .product-description {
+      grid-template-columns: 1.4fr 1fr;
+    }
   }
 `
