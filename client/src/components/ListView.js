@@ -48,6 +48,7 @@ const ListContainer = styled.section`
     color: var(--product-info-color);
     font-weight: 400;
     font-size: 1rem;
+    margin-bottom: 0.5rem;
   }
   p {
     margin-bottom: 2rem;

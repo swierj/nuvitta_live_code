@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import bannerImg from '../assets/woman-banner-large.png'
+import bannerImg from '../assets/woman-banner-final.png'
 import { links } from '../vars/links'
 
 export default function Banner() {
@@ -28,13 +28,10 @@ export default function Banner() {
 }
 
 const BannerContainer = styled.section`
-  min-height: 50vh;
   display: flex;
-  background-image: url(${bannerImg});
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 90vw;
-  max-width: 1500px;
+  background: url(${bannerImg}) no-repeat bottom center;
+  background-size: 100%;
+  max-width: calc(45vh + 45vw);
   margin: 0 auto;
   place-items: center;
   /* img {
@@ -74,7 +71,7 @@ const BannerContainer = styled.section`
   @media (min-width: 1024px) {
     height: calc(100vh - var(--navbar-height));
     article {
-      margin-left: 125px;
+      margin-left: 10vh;
     }
     p {
       max-width: 55%;

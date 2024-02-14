@@ -5,7 +5,6 @@ export default function AboutPage() {
   return (
     <main>
       <AboutStore />
-      <Policies />
     </main>
   )
 }
