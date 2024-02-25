@@ -2,9 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { FaSearch } from 'react-icons/fa'
-import { formatPrice } from '../vars/helper'
+import { formatPrice, averageRating } from '../vars/helper'
+import StarReview from './StarReview'
 
-export default function ProductCard({ imgMain, name, price, id }) {
+export default function ProductCard({ imgMain, name, price, id, reviews }) {
   return (
     <ProductContainer>
       <div className='container'>
@@ -16,7 +17,11 @@ export default function ProductCard({ imgMain, name, price, id }) {
         </Link>
       </div>
       <footer>
-        <h3>{name}</h3>
+        <h3 className='name'>{name}</h3>
+        <StarReview
+          stars={averageRating(reviews)}
+          reviewCount={reviews.length}
+        />
         <p>{formatPrice(price)}</p>
       </footer>
     </ProductContainer>
@@ -47,7 +52,6 @@ const ProductContainer = styled.article`
     display: block;
     border-radius: 0.75rem;
     transition: 1s;
-    margin-bottom: 0.5rem;
     transform: scale(1.2);
   }
   .link {
@@ -75,5 +79,8 @@ const ProductContainer = styled.article`
   }
   .container:hover .link {
     opacity: 1;
+  }
+  .name {
+    margin-bottom: 3px;
   }
 `

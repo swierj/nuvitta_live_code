@@ -19,6 +19,8 @@ import Filters from './Filters'
 import ViewFilter from './ViewFilter'
 import CartCheckout from './CartCheckout'
 import CartContent from './CartContent'
+import Stars from './Stars'
+import ShippingDeal from './ShippingDeal'
 
 export {
   Navbar,
@@ -42,4 +44,6 @@ export {
   ViewFilter,
   CartCheckout,
   CartContent,
+  Stars,
+  ShippingDeal,
 }

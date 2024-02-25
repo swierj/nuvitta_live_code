@@ -37,7 +37,7 @@ const ListContainer = styled.section`
     display: block;
     width: 300px;
     object-fit: cover;
-    transform: scale(1.4);
+    transform: scale(1.2);
   }
   h3 {
     color: var(--product-info-color);

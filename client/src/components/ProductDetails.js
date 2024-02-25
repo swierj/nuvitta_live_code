@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
+import Stars from './Stars'
 
 export default function ProductDetails({
   prodHighlight,
@@ -9,6 +10,7 @@ export default function ProductDetails({
   warnings,
   prodIngr,
   prodDirec,
+  reviews,
 }) {
   const product = [
     prodHighlight,
@@ -17,6 +19,7 @@ export default function ProductDetails({
     keyFeatures,
     skinType,
     warnings,
+    reviews,
   ]
   const categories = [
     'product highlights',
@@ -25,6 +28,7 @@ export default function ProductDetails({
     'key features',
     'skin type',
     'warnings',
+    'reviews',
   ]
 
   return (
@@ -41,7 +45,33 @@ export default function ProductDetails({
         </TabList>
         {product.map((productInfo, index) => {
           // mapping data based if it is in an array or not.
-          if (Array.isArray(productInfo)) {
+          // checking if the info is reviews because it needs a special case as it is an array of arrays
+          if (index === 6) {
+            return (
+              <TabPanel key={index}>
+                {productInfo.map((review) => {
+                  return (
+                    <section className='review-container' key={review}>
+                      <div className='name' key={review[1]}>
+                        {review[1]}
+                      </div>
+                      <span>
+                        <div className='rating' key={review[0]}>
+                          <Stars stars={review[0]} />
+                        </div>
+                        <div className='subject' key={review[3]}>
+                          {review[3]}
+                        </div>
+                      </span>
+                      <div className='review' key={review[2]}>
+                        {review[2]}
+                      </div>
+                    </section>
+                  )
+                })}
+              </TabPanel>
+            )
+          } else if (Array.isArray(productInfo)) {
             return (
               <TabPanel key={index}>
                 {productInfo.map((s) => {
@@ -97,6 +127,26 @@ const ProductDetailsContainer = styled.section`
   }
   .react-tabs__tab--selected {
     color: var(--brand-color);
+  }
+  // reviews styling
+  .review-container {
+    margin-bottom: 3rem;
+    span {
+      margin-bottom: 5px;
+      display: inline-flex;
+      div {
+        margin-right: 10px;
+      }
+      .subject {
+        font-weight: 700;
+      }
+    }
+    .name {
+      color: var(--heading-color);
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 30px;
+    }
   }
 `
 

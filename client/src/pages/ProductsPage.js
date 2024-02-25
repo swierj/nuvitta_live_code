@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ProductList, Filters, ViewFilter } from '../components'
-import banner from '../assets/products-banner.png'
+import { ProductList, Filters, ViewFilter, ShippingDeal } from '../components'
+import banner from '../assets/products_banner8.png'
 /* add a shop products green section below navbar */
 // add a post get so when page is refreshed it refreshes properly
 
@@ -9,7 +9,7 @@ export default function ProductPage() {
   return (
     <main>
       <ProductsContainer>
-        <img src={banner} className='banner' alt='about banner' />
+        <ShippingDeal />
         <div className='page-center products'>
           <Filters />
           <div>
@@ -26,6 +26,7 @@ const ProductsContainer = styled.section`
   .banner {
     margin-top: 1rem;
     width: 100%;
+    margin-top: 0rem;
   }
   .products {
     display: grid;

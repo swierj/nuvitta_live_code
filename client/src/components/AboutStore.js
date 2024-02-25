@@ -9,7 +9,7 @@ export default function AboutStore() {
       <section className='product-description page-center'>
         <article>
           {/* <img src={map} className='redmond' alt='products about page' /> */}
-          <h1>our products...</h1>
+          <h1>our products</h1>
           <p>
             Begin their journey in our facility in Redmond, Washington, where
             they are carefully hand poured and packaged. We make it our priority
@@ -29,7 +29,7 @@ export default function AboutStore() {
         </article>
         <img src={products_img} alt='products about page' />
       </section>
-
+      <hr />
       <section className='about-founder page-center'>
         <img src={ela_about} alt='image of ela with products' />
         <article>
@@ -86,6 +86,12 @@ const AboutContainer = styled.section`
       display: block;
       border-radius: 0.75rem;
     }
+  }
+  hr {
+    margin: 6rem 0;
+    width: 100%;
+    height: 6px;
+    background: var(--brand-color);
   }
   h1 {
     margin-top: 4rem;

@@ -10,6 +10,7 @@ import {
   ProductImages,
   AddToCart,
   ProductDetails,
+  ShippingDeal,
 } from '../components'
 
 export default function SingleProductPage() {
@@ -46,6 +47,7 @@ export default function SingleProductPage() {
 
   return (
     <SingleProductContainer>
+      <ShippingDeal />
       <div className='page page-center'>
         <div className='link-container'>
           <Link to='/'>Home /</Link>
@@ -66,7 +68,9 @@ export default function SingleProductPage() {
 }
 
 const SingleProductContainer = styled.section`
-  margin-top: 1.5rem;
+  .page {
+    padding: 1.5rem 0;
+  }
   .section-split {
     display: grid;
     margin: 1.5rem 0;

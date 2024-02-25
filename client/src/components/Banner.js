@@ -9,8 +9,10 @@ export default function Banner() {
     <BannerContainer className='banner-center'>
       <article>
         <h1>
-          renew your skin <br />
-          with NuVitta
+          <i>
+            renew your skin <br />
+            with NuVitta
+          </i>
         </h1>
         <p>
           Treat your skin with NuVitta all-natural products designed to nurture
@@ -48,6 +50,7 @@ const BannerContainer = styled.section`
     font-weight: 600;
     font-size: 2.7rem;
     word-spacing: 0.5rem;
+    text-transform: ita;
   }
   p {
     margin-bottom: 2rem;
