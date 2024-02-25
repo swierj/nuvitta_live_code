@@ -61,6 +61,10 @@ export default function AboutStore() {
           </p>
         </article>
       </section>
+      <hr />
+      <section className='page-center' id='refund-policy'>
+        <h1>Return and Refund Policy</h1>
+      </section>
     </AboutContainer>
   )
 }

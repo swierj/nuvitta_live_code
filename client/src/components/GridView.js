@@ -17,7 +17,7 @@ export default function GridView({ products }) {
 const GridContainer = styled.section`
   .products-container {
     display: grid;
-    gap: 2rem 2rem;
+    gap: 2rem 3rem;
     grid-template-columns: repeat(2, 1fr);
   }
   @media (min-width: 1024px) {

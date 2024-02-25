@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { HashLink as Link } from 'react-router-hash-link'
 
 export default function Footer() {
   return (
@@ -10,12 +11,16 @@ export default function Footer() {
       </div>
       <div>
         <h3>support</h3>
-        <p>refund policy</p>
-        <p>return policy</p>
+        <Link to='/about#refund-policy'>
+          <p>refund policy</p>
+          <p>return policy</p>
+        </Link>
       </div>
       <div>
         <h3>contact</h3>
-        <p>email</p>
+        <Link to='/contact'>
+          <p>email</p>
+        </Link>
         <p>facebook</p>
       </div>
     </FooterContainer>
@@ -37,6 +42,9 @@ const FooterContainer = styled.footer`
     padding: 1rem 0;
     text-align: center;
     flex-direction: column;
+  }
+  a {
+    color: black;
   }
   @media (min-width: 1024px) {
     flex-direction: row;
