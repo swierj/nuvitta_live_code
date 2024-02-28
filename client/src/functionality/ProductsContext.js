@@ -17,6 +17,7 @@ const initialState = {
   products_error: false,
   products: [],
   bestsell_products: [],
+  bundle_products: [],
   s_product_load: false,
   s_product_error: false,
   s_product: {},
@@ -33,11 +34,15 @@ const reducer = (state, action) => {
       const bestsell_products = action.payload.filter(
         (product) => product.bestsell === true
       )
+      const bundle_products = action.payload.filter(
+        (product) => product.bundle === true
+      )
       return {
         ...state,
         products_load: false,
         products: action.payload,
         bestsell_products,
+        bundle_products,
       }
     case ACTIONS.PRODUCTS_ERROR:
       return { ...state, products_load: false, products_error: true }

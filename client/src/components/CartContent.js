@@ -36,6 +36,7 @@ export default function CartContent() {
       <section>
         <h3 className='title'>shopping cart</h3>
         {cart.map((item) => {
+          console.log(item)
           return <CartItem key={item.id} {...item} />
         })}
       </section>

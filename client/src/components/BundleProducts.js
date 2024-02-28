@@ -11,6 +11,7 @@ import spaImg from '../assets/woman-leaves-bundle.png'
 
 export default function BundleProducts() {
   const {
+    bundle_products: bundle,
     bestsell_products: bestsell,
     products_error: error,
     products_load: loading,
@@ -39,7 +40,7 @@ export default function BundleProducts() {
           <h1>bundles</h1>
         </div>
         <div className='bestsell'>
-          {bestsell.map((product) => {
+          {bundle.map((product) => {
             return <ProductCard key={product.id} {...product} />
           })}
         </div>

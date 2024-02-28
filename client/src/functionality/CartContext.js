@@ -23,7 +23,7 @@ const ACTIONS = {
 const initialState = {
   cart: getLocalStorage(),
   total_items: 0,
-  total_amount: 0,
+  total_price: 0,
   shipping: 1000,
 }
 /* 
@@ -75,16 +75,21 @@ const reducer = (state, action) => {
     case ACTIONS.CLEAR_CART:
       return { ...state, cart: [] }
     case ACTIONS.COUNT_TOTAL:
-      var { total_items, total_amount } = state.cart.reduce(
+      var { total_items, total_price, shipping } = state.cart.reduce(
         (total, item) => {
           var { amount, price } = item
           total.total_items += amount
-          total.total_amount += price * amount
+          total.total_price += price * amount
+          if (total.total_price > 10000) {
+            total.shipping = 0
+          } else {
+            total.shipping = 1000
+          }
           return total
         },
-        { total_items: 0, total_amount: 0 }
+        { total_items: 0, total_price: 0 }
       )
-      return { ...state, total_items, total_amount }
+      return { ...state, total_items, total_price, shipping }
     default:
       throw new Error(`No Matching "${action.type}" - action type`)
   }

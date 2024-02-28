@@ -5,7 +5,7 @@ export default function ShippingDeal() {
   return (
     <ShippingDealContainer>
       <div className='shipping-deal'>
-        <p>Free Shipping on Orders $150+</p>
+        <p>Free Shipping on Orders $100+</p>
       </div>
     </ShippingDealContainer>
   )

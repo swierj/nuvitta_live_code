@@ -45,7 +45,7 @@ const CartIconContainer = styled.div`
     font-size: 0.75rem;
     color: white;
     padding: 0.75rem;
-    font-weight: 900;
+    font-weight: 700;
     font-size: 1rem;
   }
 `

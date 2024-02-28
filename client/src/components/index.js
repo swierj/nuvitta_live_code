@@ -21,6 +21,7 @@ import CartCheckout from './CartCheckout'
 import CartContent from './CartContent'
 import Stars from './Stars'
 import ShippingDeal from './ShippingDeal'
+import BundleInfo from './BundleInfo'
 
 export {
   Navbar,
@@ -46,4 +47,5 @@ export {
   CartContent,
   Stars,
   ShippingDeal,
+  BundleInfo,
 }

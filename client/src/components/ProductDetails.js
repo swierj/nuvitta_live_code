@@ -11,6 +11,7 @@ export default function ProductDetails({
   prodIngr,
   prodDirec,
   reviews,
+  bundle,
 }) {
   const product = [
     prodHighlight,
@@ -31,68 +32,82 @@ export default function ProductDetails({
     'reviews',
   ]
 
-  return (
-    <ProductDetailsContainer>
-      <Tabs defaultIndex={0} onSelect={(index) => console.log(index)}>
-        <TabList className={'tab-headers tabline'}>
-          {categories.map((category) => {
+  if (bundle) {
+    return (
+      <ProductDetailsContainer>
+        <h3 className='tabline'>Reviews</h3>
+      </ProductDetailsContainer>
+    )
+  } else {
+    return (
+      <ProductDetailsContainer>
+        <Tabs defaultIndex={0} onSelect={(index) => console.log(index)}>
+          <TabList className={'tab-headers tabline'}>
+            {categories.map((category) => {
+              return (
+                <Tab key={category} className={'tab hover-underline-animation'}>
+                  <h3>{category}</h3>
+                </Tab>
+              )
+            })}
+          </TabList>
+          {product.map((productInfo, index) => {
+            // mapping data based if it is in an array or not.
+            // checking if the info is reviews because it needs a special case as it is an array of arrays
+            if (productInfo.length < 1) {
+              return (
+                <TabPanel key={index}>
+                  <p>No reviews yet. Be the first!</p>
+                </TabPanel>
+              )
+            } else if (index === 6) {
+              return (
+                <TabPanel key={index}>
+                  {productInfo.map((review) => {
+                    return (
+                      <section className='review-container' key={review}>
+                        <div className='name' key={review[1]}>
+                          {review[1]}
+                        </div>
+                        <span>
+                          <div className='rating' key={review[0]}>
+                            <Stars stars={review[0]} />
+                          </div>
+                          <div className='subject' key={review[3]}>
+                            {review[3]}
+                          </div>
+                        </span>
+                        <div className='review' key={review[2]}>
+                          {review[2]}
+                        </div>
+                      </section>
+                    )
+                  })}
+                </TabPanel>
+              )
+            } else if (Array.isArray(productInfo)) {
+              return (
+                <TabPanel key={index}>
+                  {productInfo.map((s) => {
+                    return (
+                      <li key={s} className='list-items'>
+                        {s}
+                      </li>
+                    )
+                  })}
+                </TabPanel>
+              )
+            }
             return (
-              <Tab key={category} className={'tab hover-underline-animation'}>
-                <h3>{category}</h3>
-              </Tab>
+              <TabPanel key={index}>
+                <p>{productInfo}</p>
+              </TabPanel>
             )
           })}
-        </TabList>
-        {product.map((productInfo, index) => {
-          // mapping data based if it is in an array or not.
-          // checking if the info is reviews because it needs a special case as it is an array of arrays
-          if (index === 6) {
-            return (
-              <TabPanel key={index}>
-                {productInfo.map((review) => {
-                  return (
-                    <section className='review-container' key={review}>
-                      <div className='name' key={review[1]}>
-                        {review[1]}
-                      </div>
-                      <span>
-                        <div className='rating' key={review[0]}>
-                          <Stars stars={review[0]} />
-                        </div>
-                        <div className='subject' key={review[3]}>
-                          {review[3]}
-                        </div>
-                      </span>
-                      <div className='review' key={review[2]}>
-                        {review[2]}
-                      </div>
-                    </section>
-                  )
-                })}
-              </TabPanel>
-            )
-          } else if (Array.isArray(productInfo)) {
-            return (
-              <TabPanel key={index}>
-                {productInfo.map((s) => {
-                  return (
-                    <li key={s} className='list-items'>
-                      {s}
-                    </li>
-                  )
-                })}
-              </TabPanel>
-            )
-          }
-          return (
-            <TabPanel key={index}>
-              <p>{productInfo}</p>
-            </TabPanel>
-          )
-        })}
-      </Tabs>
-    </ProductDetailsContainer>
-  )
+        </Tabs>
+      </ProductDetailsContainer>
+    )
+  }
 }
 
 const ProductDetailsContainer = styled.section`
@@ -119,11 +134,6 @@ const ProductDetailsContainer = styled.section`
   }
   .hover-underline-animation::after {
     bottom: -4px;
-  }
-  .tabline {
-    width: 100%;
-    border-bottom: 1px solid var(--brand-color);
-    position: relative;
   }
   .react-tabs__tab--selected {
     color: var(--brand-color);

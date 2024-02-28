@@ -18,6 +18,7 @@ const testDOMAIN = 'http://localhost:3000'
 // add try catch
 app.post('/create-checkout-session', async (req, res) => {
   const items = req.body.items
+  const shipping = req.body.shipping
   let lineItems = []
   // adding cart item data to the lineItems array for the format that stripe wants
   items.forEach((item) => {
@@ -31,6 +32,15 @@ app.post('/create-checkout-session', async (req, res) => {
       },
       quantity: item.amount,
     })
+  })
+  // shipping is free for orders $100+ so if under, adds on the $10 shipping fee
+  lineItems.push({
+    price_data: {
+      currency: 'usd',
+      unit_amount: shipping,
+      product_data: { name: 'Shipping Fee' },
+    },
+    quantity: 1,
   })
   const session = await stripe.checkout.sessions.create({
     ui_mode: 'embedded',

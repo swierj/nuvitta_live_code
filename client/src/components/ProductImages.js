@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import ReactImageMagnify from 'react-image-magnify'
 
 export default function ProductImages({ imgMain, name, imgAlt1, imgAlt2 }) {
   const images = [imgMain, imgAlt1, imgAlt2]
@@ -9,7 +10,24 @@ export default function ProductImages({ imgMain, name, imgAlt1, imgAlt2 }) {
   return (
     <ImagesContainer>
       <div className='img-wrapper'>
-        <img src={main} alt={name} className='mainImg' />
+        <ReactImageMagnify
+          {...{
+            smallImage: {
+              alt: 'Wristwatch by Ted Baker London',
+              isFluidWidth: true,
+              src: main,
+            },
+            largeImage: {
+              src: main,
+              width: 1200,
+              height: 1600,
+            },
+            hoverDelayInMs: 150,
+            enlargedImagePosition: 'over',
+            isHintEnabled: true,
+            shouldHideHintAfterFirstActivation: false,
+          }}
+        />
       </div>
       {/* <div className='img-gallery'>
         {images.map((image, index) => {
@@ -30,19 +48,10 @@ export default function ProductImages({ imgMain, name, imgAlt1, imgAlt2 }) {
 
 const ImagesContainer = styled.section`
   img {
-    max-width: 30rem;
-    display: block;
-    object-fit: cover;
-    align-items: center;
-    transform-origin: 50% 60%;
-    transition: transform 1s, filter 0.5s ease-out;
   }
   img.mainImg:hover {
-    transform: scale(2);
-    transition: 0.25s;
   }
   .img-wrapper {
-    overflow: hidden;
   }
   .img-gallery {
     width: 30rem;

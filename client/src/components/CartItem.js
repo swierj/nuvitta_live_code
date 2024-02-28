@@ -97,6 +97,4 @@ const CartItemContainer = styled.section`
     gap: 1rem;
     text-align: left;
   }
-  .product-name {
-  }
 `

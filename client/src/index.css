@@ -112,6 +112,12 @@ p {
   background: var(--brand-color);
 }
 
+.tabline {
+  width: 100%;
+  border-bottom: 1px solid var(--brand-color);
+  position: relative;
+}
+
 .hover-underline-animation {
   display: flex;
   position: relative;

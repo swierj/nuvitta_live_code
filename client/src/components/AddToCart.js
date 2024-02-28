@@ -49,4 +49,9 @@ export default function AddToCart({ product }) {
   )
 }
 
-const CartContainer = styled.section``
+const CartContainer = styled.section`
+  .btn {
+    padding: 0.75rem;
+    font-size: 14px;
+  }
+`

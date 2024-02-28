@@ -6,7 +6,8 @@ import { Link } from 'react-router-dom'
 import { links } from '../vars/links'
 
 export default function CartCheckout() {
-  const { total_amount, shipping, total_items } = useCartContext()
+  const { total_price, shipping, total_items } = useCartContext()
+  // might want to put shipping as an env variable or do the calcs on serverside
   return (
     <CartCheckoutContainer>
       <article>
@@ -14,7 +15,7 @@ export default function CartCheckout() {
           <p>
             subtotal <span>({total_items} items)</span>
           </p>
-          <p>{formatPrice(total_amount)}</p>
+          <p>{formatPrice(total_price)}</p>
         </div>
         <div className='grid'>
           <p>shipping</p>
@@ -26,7 +27,7 @@ export default function CartCheckout() {
         </div>
         <div className='total-amount grid'>
           <p>estimated total</p>
-          <p>{formatPrice(total_amount + shipping)}</p>
+          <p>{formatPrice(total_price + shipping)}</p>
         </div>
       </article>
       <Link to={links[1].url} className='btn'>

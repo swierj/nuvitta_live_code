@@ -11,6 +11,7 @@ import {
   AddToCart,
   ProductDetails,
   ShippingDeal,
+  BundleInfo,
 } from '../components'
 
 export default function SingleProductPage() {
@@ -45,6 +46,16 @@ export default function SingleProductPage() {
 
   const product = products[id - 1]
 
+  var infoComp = null
+  var detailsComp = null
+
+  // logic to check if product is bundle or not since it needs different details rendered
+  if (product.bundle) {
+    infoComp = <BundleInfo {...product} />
+  } else {
+    infoComp = <ProductInfo {...product} />
+  }
+
   return (
     <SingleProductContainer>
       <ShippingDeal />
@@ -57,7 +68,7 @@ export default function SingleProductPage() {
         <div className='section-split'>
           <ProductImages {...product} />
           <div>
-            <ProductInfo {...product} />
+            {infoComp}
             <AddToCart product={product} />
           </div>
         </div>

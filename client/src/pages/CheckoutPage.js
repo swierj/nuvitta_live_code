@@ -13,14 +13,14 @@ const stripePromise = loadStripe(STRIPE_PK)
 export default function CheckoutPage() {
   const [clientSecret, setClientSecret] = useState('')
 
-  const { cart } = useCartContext()
+  const { cart, shipping } = useCartContext()
 
   useEffect(() => {
     fetch('/create-checkout-session', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       // pass cart items to backend
-      body: JSON.stringify({ items: cart }),
+      body: JSON.stringify({ items: cart, shipping: shipping }),
     })
       .then((res) => res.json())
       .then((data) => setClientSecret(data.clientSecret))

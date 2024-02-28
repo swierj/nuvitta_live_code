@@ -4,7 +4,7 @@ import { formatPrice } from '../vars/helper'
 import StarReview from './StarReview'
 import { averageRating } from '../vars/helper'
 
-export default function ProductInfo({
+export default function BundleInfo({
   name,
   price,
   category,
@@ -14,37 +14,21 @@ export default function ProductInfo({
   bundle,
   reviews,
 }) {
-  if (bundle) {
-    return <p>test</p>
-  } else {
-    return (
-      <ProductInfoContainer>
-        <div className='center'>
-          <h3>{category}</h3>
-          <h1 className='title'>{name}</h1>
-          <StarReview
-            stars={averageRating(reviews)}
-            reviewCount={reviews.length}
-          />
-          <h2 className='price'>{formatPrice(price)}</h2>
-          <div className='size'>
-            <span>Size: </span>
-            {size}
-          </div>
-          <p>{prodDesc}</p>
-          <h3>superstar ingredients</h3>
-          <p>
-            {superIngr.map((ingredient) => {
-              return <li key={ingredient}>{ingredient}</li>
-            })}
-          </p>
-        </div>
-      </ProductInfoContainer>
-    )
-  }
+  return (
+    <BundleInfoContainer>
+      <div className='center'>
+        <h3>{category}</h3>
+        <h1 className='title'>{name}</h1>
+        <StarReview
+          stars={averageRating(reviews)}
+          reviewCount={reviews.length}
+        />
+      </div>
+    </BundleInfoContainer>
+  )
 }
 
-const ProductInfoContainer = styled.section`
+const BundleInfoContainer = styled.section`
   h1 {
     font-weight: 600;
   }
