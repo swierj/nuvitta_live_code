@@ -160,7 +160,7 @@ const ProductDetailsContainer = styled.section`
   }
 `
 
-/* 
+/*
       {product.map((info) => {
         return <p>{info}</p>
       })} */

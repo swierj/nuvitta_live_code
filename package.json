@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "@stripe/react-stripe-js": "^2.5.1",
+    "express": "^4.18.3",
+    "react": "^18.2.0",
+    "react-icons": "^5.0.1",
+    "react-image-magnify": "^2.7.4",
+    "react-router": "^6.22.3",
+    "react-scripts": "^5.0.1",
+    "react-tabs": "^6.0.2",
+    "stripe": "^14.20.0",
+    "styled": "^1.0.0",
+    "styled-components": "^6.1.8"
+  }
+}
