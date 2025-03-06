@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import ReactImageMagnify from 'react-image-magnify'
+//import ReactImageMagnify from 'react-image-magnify'
+// disabled react-image-magnify until I can get it to work. won't be showing main product image :(
 
 export default function ProductImages({ imgMain, name, imgAlt1, imgAlt2 }) {
   const images = [imgMain, imgAlt1, imgAlt2]
@@ -10,7 +11,7 @@ export default function ProductImages({ imgMain, name, imgAlt1, imgAlt2 }) {
   return (
     <ImagesContainer>
       <div className='img-wrapper'>
-        <ReactImageMagnify
+        {/* <ReactImageMagnify
           {...{
             smallImage: {
               alt: 'Wristwatch by Ted Baker London',
@@ -27,7 +28,7 @@ export default function ProductImages({ imgMain, name, imgAlt1, imgAlt2 }) {
             isHintEnabled: true,
             shouldHideHintAfterFirstActivation: false,
           }}
-        />
+        /> */}
       </div>
       {/* <div className='img-gallery'>
         {images.map((image, index) => {
