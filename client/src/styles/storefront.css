@@ -97,6 +97,11 @@
 .product-card-title > span { flex: none; white-space: nowrap; padding-top: 2px; }
 .product-tag { max-width: calc(100% - 38px); }
 .home-bundles { padding-top: 20px; }
+.catalog-page { padding-top: 36px; }
+.catalog-page > .eyebrow { margin-bottom: 16px; }
+.catalog-page > h1 { font-size: clamp(2.35rem, 4.2vw, 3.75rem); }
+.catalog-page .catalog-tools { margin-top: 28px; }
+@media(max-width:650px) { .catalog-page { padding-top: 24px; } }
 .catalog-tools .category-buttons { flex: 1; }
 .catalog-tools .search-label { flex: none; }
 .detail-copy h1 { font-size: clamp(2.2rem, 3.3vw, 3.2rem); overflow-wrap: anywhere; }
@@ -128,7 +133,21 @@
 .review-heading span { color: #697e52; font-size: .9rem; letter-spacing: .12em; }
 .product-review h4 { margin: 10px 0; font-size: .88rem; font-weight: 500; }
 .product-review p { font-size: .88rem; }
-.review-source { font-size: .75rem !important; }
+.detail-copy details.product-reviews { margin-top: 28px; padding: 0; }
+.product-reviews summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 60px; padding: 16px 0; list-style: none; font-size: .95rem; font-weight: 500; }
+.product-reviews summary::-webkit-details-marker { display: none; }
+.review-count { display: inline-grid; place-items: center; min-width: 26px; height: 26px; margin-left: 8px; padding-inline: 7px; border-radius: 50%; background: #edf0e7; color: var(--muted); font-size: .75rem; font-weight: 400; }
+.review-toggle { font-size: 1.4rem; font-weight: 400; line-height: 1; transition: transform .2s ease; }
+.product-reviews[open] .review-toggle { transform: rotate(45deg); }
+.reviews-content { padding-bottom: 22px; }
+.reviews-content .product-review:first-child { margin-top: 0; padding-top: 8px; border-top: 0; }
+.detail-copy .product-reviews p { padding-top: 0; line-height: 1.65; }
+.reviews-empty { padding-block: 4px; font-size: .85rem; }
+.reviews-pagination { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-top: 24px; }
+.reviews-pagination p { font-size: .72rem; }
+.reviews-pagination button { min-height: 44px; padding: 8px 14px; border: 1px solid var(--line); background: transparent; color: var(--green); font-size: .75rem; }
+.reviews-pagination button:hover { background: #edf0e7; }
+@media (prefers-reduced-motion: reduce) { .review-toggle { transition: none; } }
 .story-page .product-story { margin-top: 70px; }
 .contact-phone { font-size: 1.15rem; margin-top: 20px; }
 @media(max-width:650px) {

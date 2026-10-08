@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import { MAX_QUANTITY } from '../features/cart/cart.js'
 import { money } from '../components/StoreProductCard.jsx'
 import ProductGallery from '../components/ProductGallery.jsx'
+import ProductReviews from '../components/ProductReviews.jsx'
 
 function ProductText({ value }) {
   if (Array.isArray(value)) return <ul>{value.map((text, i) => <li key={i}>{text}</li>)}</ul>
@@ -41,14 +42,12 @@ export default function ProductDetail({ products, add, cart }) {
         </div>
         <p className="status" role="status">{current + quantity > MAX_QUANTITY ? 'Maximum 20 of each item in your bag.' : message} {message && <Link to="/cart">View bag →</Link>}</p>
         {product.superIngr?.length > 0 && <section className="superstar-ingredients"><h3>Superstar ingredients</h3><ProductText value={product.superIngr} /></section>}
+        <ProductReviews key={product.id} reviews={product.reviews} />
         {product.bundle && <section className="bundle-includes"><h3>Inside the bundle</h3>{product.items.map((item, index) => <Link key={item} to={`/products/${item}`}><span>{product.includedProducts[index]}<small>{product.sizeProducts[index]}</small></span><span>{product.priceProducts[index]} ↗</span></Link>)}</section>}
       </div>
     </div>
     <div className="product-information"><h2>A closer look.</h2>
       {sections.map(([title, value]) => <details key={`${product.id}-${title}`} open={title === 'Product highlights'}><summary>{title}</summary><ProductText value={value} /></details>)}
-      <details key={`${product.id}-reviews`}><summary>Reviews ({product.reviews.length})</summary>
-        {product.reviews.length > 0 ? <><p className="review-source">Reviews carried over from the original NuVitta catalog.</p>{product.reviews.map(([rating, name, text, title], index) => <article className="product-review" key={index}><div className="review-heading"><h3>{name}</h3><span aria-label={`${rating} out of 5 stars`}>{'★'.repeat(Math.round(rating))}{'☆'.repeat(5 - Math.round(rating))}</span></div><h4>{title}</h4><p>{text}</p></article>)}</> : <p>No reviews yet. Be the first!</p>}
-      </details>
     </div>
   </section>
 }
