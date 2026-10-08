@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { Link, Route, Routes } from 'react-router-dom'
 import StoreHeader from './components/StoreHeader.jsx'
+import BrandLogo from './components/BrandLogo.jsx'
+import LogoStudy from './pages/LogoStudy.jsx'
 import Detail from './pages/StoreProductDetail.jsx'
 import About from './pages/StoreAbout.jsx'
 import CatalogImage from './components/CatalogImage.jsx'
@@ -33,6 +35,7 @@ function Contact() {
 }
 function NotFound() { return <section className="empty-state wrap"><h1>A fresh start?</h1><p>We couldn’t find that page or product.</p><Link className="button" to="/products">Explore skincare ↗</Link></section> }
 export default function App() {
+  const [logo, setLogo] = useState({ font: 'Outfit', weight: 500 })
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
@@ -47,5 +50,5 @@ export default function App() {
   useEffect(() => { try { window.localStorage.setItem(CART_KEY, JSON.stringify(cart)) } catch { /* Cart remains usable without browser storage. */ } }, [cart])
   const update = (id, quantity) => setCart(previous => updateCart(previous, id, quantity))
   const count = cart.filter(item => products.some(p => p.id === item.id)).reduce((sum, item) => sum + item.quantity, 0)
-  return <><StoreHeader count={count} /><main id="main">{loading ? <div className="empty-state" role="status">Preparing your essentials…</div> : error ? <div className="empty-state"><h1>Let’s try that again.</h1><p>The catalog couldn’t load. Check that the API is running.</p><button className="button" onClick={() => setAttempt(n => n + 1)}>Retry</button></div> : <Routes><Route path="/" element={<Home products={products} />} /><Route path="/products" element={<Catalog products={products} />} /><Route path="/products/:id" element={<Detail products={products} cart={cart} add={update} />} /><Route path="/cart" element={<Cart products={products} cart={cart} update={update} />} /><Route path="/about" element={<About />} /><Route path="/contact" element={<Contact />} /><Route path="*" element={<NotFound />} /></Routes>}</main><footer className="site-footer"><div className="wrap footer-top"><Link className="footer-brand" to="/">NuVitta<span>Care for your everyday.</span></Link><nav aria-label="Footer navigation"><Link to="/products">Shop skincare</Link><Link to="/about">Our story</Link><Link to="/contact">Contact</Link></nav></div><div className="wrap footer-bottom"><span>© {new Date().getFullYear()} NuVitta</span><span>Storefront preview · Payments disabled</span></div></footer></>
+  return <><StoreHeader count={count} logo={logo} /><main id="main">{loading ? <div className="empty-state" role="status">Preparing your essentials…</div> : error ? <div className="empty-state"><h1>Let’s try that again.</h1><p>The catalog couldn’t load. Check that the API is running.</p><button className="button" onClick={() => setAttempt(n => n + 1)}>Retry</button></div> : <Routes><Route path="/logo-study" element={<LogoStudy logo={logo} onChange={setLogo} />} /><Route path="/" element={<Home products={products} />} /><Route path="/products" element={<Catalog products={products} />} /><Route path="/products/:id" element={<Detail products={products} cart={cart} add={update} />} /><Route path="/cart" element={<Cart products={products} cart={cart} update={update} />} /><Route path="/about" element={<About />} /><Route path="/contact" element={<Contact />} /><Route path="*" element={<NotFound />} /></Routes>}</main><footer className="site-footer"><div className="wrap footer-top"><Link className="footer-brand" to="/" aria-label="NuVitaGlo home"><BrandLogo {...logo} /><span className="footer-tagline">Care for your everyday.</span></Link><nav aria-label="Footer navigation"><Link to="/products">Shop skincare</Link><Link to="/about">Our story</Link><Link to="/contact">Contact</Link></nav></div><div className="wrap footer-bottom"><span>© {new Date().getFullYear()} NuVitta</span><span>Storefront preview · Payments disabled</span></div></footer></>
 }
