@@ -5,7 +5,7 @@ import Detail from './pages/StoreProductDetail.jsx'
 import About from './pages/StoreAbout.jsx'
 import CatalogImage from './components/CatalogImage.jsx'
 import ProductCard, { money } from './components/StoreProductCard.jsx'
-import { CART_KEY, readCart, updateCart } from './features/cart/cart.js'
+import { CART_KEY, MAX_QUANTITY, readCart, updateCart } from './features/cart/cart.js'
 
 function Home({ products }) {
   return <>
