@@ -200,6 +200,7 @@
 @media (prefers-reduced-motion: reduce) { .detail-photo { transition: none; } .photo-viewer { animation: none; } }
 
 /* Instrument Sans leads, with a serif accent for the brand statement. */
+.announcement { padding: 6px 18px; font-size: .7rem; letter-spacing: .035em; line-height: 1.5; }
 .detail-price .bundle-saving-note { display: block; margin: 12px 0 0; color: var(--green); font-size: .8rem; line-height: 1.5; }
 .detail-copy-bundle h1 { max-width: 22ch; font-size: clamp(2rem, 2.8vw, 2.8rem); line-height: 1.16; text-wrap: balance; }
 .detail-copy-bundle .detail-price { margin-block: 32px 0; }

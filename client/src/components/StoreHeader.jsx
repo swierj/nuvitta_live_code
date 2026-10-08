@@ -7,7 +7,7 @@ export default function StoreHeader({ count, logo }) {
   useEffect(() => { setOpen(false); window.scrollTo(0, 0) }, [pathname])
   return <>
     <a className="skip-link" href="#main">Skip to content</a>
-    <div className="announcement">A fresh chapter for NuvitaGlo <span>·</span> Storefront preview</div>
+    <div className="announcement">Free shipping on orders $150+</div>
     <header className="site-header wrap">
       <Link className="brand" to="/" aria-label="NuvitaGlo home"><BrandLogo {...logo} /></Link>
       <nav id="main-navigation" className={open ? 'navigation open' : 'navigation'} aria-label="Main navigation" onKeyDown={e => { if (e.key === 'Escape') setOpen(false) }}><NavLink to="/products">Shop skincare</NavLink><NavLink to="/about">Our story</NavLink><NavLink to="/contact">Get in touch</NavLink></nav>
