@@ -38,7 +38,7 @@ export default function ProductDetail({ products, add, cart }) {
         {product.description && <p className="product-description">{product.description}</p>}
         <div className="add-row">
           <label>Quantity<select value={quantity} onChange={e => { setQuantity(Number(e.target.value)); setMessage('') }}>{Array.from({ length: MAX_QUANTITY }, (_, i) => <option key={i} value={i + 1}>{i + 1}</option>)}</select></label>
-          <button className="button" disabled={current + quantity > MAX_QUANTITY} onClick={() => { add(product.id, current + quantity); setMessage(`${quantity} added to your bag.`) }}>Add to bag +</button>
+          <button className="button" disabled={current + quantity > MAX_QUANTITY} onClick={() => { add(product.id, current + quantity); setMessage(`${quantity} added to your bag.`) }}>Add to bag</button>
         </div>
         <p className="status" role="status">{current + quantity > MAX_QUANTITY ? 'Maximum 20 of each item in your bag.' : message} {message && <Link to="/cart">View bag →</Link>}</p>
         {product.superIngr?.length > 0 && <section className="superstar-ingredients"><h3>Superstar ingredients</h3><ProductText value={product.superIngr} /></section>}
