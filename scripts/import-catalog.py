@@ -36,6 +36,8 @@ with ThreadPoolExecutor(max_workers=6) as pool:
 catalog = []
 for item in source:
     product = {key: value for key, value in item.items() if key != 'price_id'}
+    if isinstance(product.get('prodDirec'), str):
+        product['prodDirec'] = product['prodDirec'].replace('NuVitta', 'NuvitaGlo')
     product.update(
         id=ids[item['name']],
         legacyId=item['id'],

@@ -167,7 +167,12 @@
 .reviews-pagination button:hover { background: #edf0e7; }
 @media (prefers-reduced-motion: reduce) { .review-toggle { transition: none; } }
 .story-page .product-story { margin-top: 70px; }
-.contact-phone { font-size: 1.15rem; margin-top: 20px; }
+.contact-page h1 { font-size: clamp(2rem, 3.4vw, 3rem); }
+.contact-methods { display: grid; gap: 16px; margin-top: 32px; }
+.contact-method { display: flex; align-items: center; gap: 14px; width: fit-content; max-width: 100%; min-height: 44px; font-size: clamp(1rem, 2vw, 1.15rem); color: var(--green); }
+.contact-method svg { width: 22px; height: 22px; flex: none; }
+.contact-method span { overflow-wrap: anywhere; text-decoration: underline; text-decoration-color: #aeb9a5; text-underline-offset: 6px; }
+.contact-method:hover span { text-decoration-color: var(--green); }
 @media(max-width:650px) {
   .product-card-title { flex-direction: column; gap: 5px; }
   .product-image .bundle-photo-grid { padding: 36px 10px 16px; gap: 3px; }

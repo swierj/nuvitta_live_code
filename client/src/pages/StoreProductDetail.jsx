@@ -6,8 +6,8 @@ import ProductGallery from '../components/ProductGallery.jsx'
 import ProductReviews from '../components/ProductReviews.jsx'
 
 function ProductText({ value }) {
-  if (Array.isArray(value)) return <ul>{value.map((text, i) => <li key={i}>{text}</li>)}</ul>
-  return <p>{value}</p>
+  if (Array.isArray(value)) return <ul>{value.map((text, i) => <li key={i}>{text.replaceAll('NuVitta', 'NuvitaGlo')}</li>)}</ul>
+  return <p>{value.replaceAll('NuVitta', 'NuvitaGlo')}</p>
 }
 
 export default function ProductDetail({ products, add, cart }) {
