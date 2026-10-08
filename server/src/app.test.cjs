@@ -1,6 +1,23 @@
 const { test } = require('node:test')
 const assert = require('node:assert/strict')
 const { createApp } = require('./app.cjs')
+
+test('Vercel entry serves catalog routes and JSON API errors without starting its own listener', async t => {
+  const app = require('../../api/index.js')
+  const server = app.listen(0, '127.0.0.1')
+  await new Promise(resolve => server.once('listening', resolve))
+  t.after(() => new Promise(resolve => { server.close(resolve); server.closeAllConnections() }))
+  const base = `http://127.0.0.1:${server.address().port}`
+  const health = await fetch(`${base}/api/health`)
+  assert.deepEqual(await health.json(), { status: 'ok', mode: 'storefront-preview' })
+  const products = await (await fetch(`${base}/api/products`)).json()
+  assert.equal(products.length, 31)
+  const detail = await (await fetch(`${base}/api/products/makeup-cleansing-oil`)).json()
+  assert.equal(detail.price, 2700)
+  const missing = await fetch(`${base}/api/unknown`)
+  assert.equal(missing.status, 404)
+  assert.deepEqual(await missing.json(), { error: 'API route not found' })
+})
 test('catalog serves stable product IDs and controlled missing-product responses', async t => {
   const server = createApp().listen(0, '127.0.0.1')
   await new Promise(resolve => server.once('listening', resolve))
