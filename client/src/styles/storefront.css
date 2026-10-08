@@ -91,6 +91,19 @@
 .approved-logo-preview p { font-size: .8rem; }
 @media(max-width:650px) { .brand-logo-image { width: 180px; } }
 
+.bag-link svg { flex: none; transition: transform .2s ease; }
+.bag-link .bag-body { fill: transparent; transition: fill .2s ease; }
+.bag-link:focus-visible svg { transform: translateY(-2px) rotate(-5deg); }
+.bag-link:focus-visible .bag-body { fill: var(--green); }
+@media (hover: hover) and (pointer: fine) {
+  .bag-link:hover svg { transform: translateY(-2px) rotate(-5deg); }
+  .bag-link:hover .bag-body { fill: var(--green); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bag-link svg, .bag-link .bag-body { transition: none; }
+  .bag-link:hover svg, .bag-link:focus-visible svg { transform: none; }
+}
+
 /* Full catalog cards and original product information. */
 .product-card-title { align-items: flex-start; }
 .product-card-title h3 { flex: 1; min-width: 0; line-height: 1.45; }
