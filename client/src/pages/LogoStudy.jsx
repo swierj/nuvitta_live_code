@@ -12,7 +12,7 @@ const weights = [[400, 'Regular'], [500, 'Medium'], [600, 'Semibold']]
 
 export default function LogoStudy({ logo, onChange }) {
   return <section className="logo-study wrap section">
-    <p className="eyebrow">NuVitta · Typography study</p>
+    <p className="eyebrow">NuvitaGlo · Typography study</p>
     <h1>Find the right feel.</h1>
     <p className="intro">The organic leaf V is our chosen logo. The earlier typography experiments are kept below for reference.</p>
     <div className="approved-logo-preview"><BrandLogo /><p>Chosen logo · Organic leaf V</p></div>

@@ -29,7 +29,8 @@ test('migration retains original product text, prices, photos, and bundle member
     const product = catalog.find(p => p.legacyId === source.id)
     assert.ok(product, source.name)
     for (const key of ['name', 'price', 'category', 'superIngr', 'prodHighlight', 'keyFeatures', 'skinType', 'warnings', 'prodDesc', 'prodDirec', 'prodIngr', 'reviews', 'includedProducts', 'sizeProducts', 'priceProducts']) {
-      assert.deepEqual(product[key], source[key], `${source.name}: ${key}`)
+      const expected = key === 'prodDirec' ? source[key]?.replaceAll('NuVitta', 'NuvitaGlo') : source[key]
+      assert.deepEqual(product[key], expected, `${source.name}: ${key}`)
     }
     assert.equal(product.description, source.prodDesc ?? source.description ?? '')
     if (!product.bundle) assert.equal(product.size, source.size)

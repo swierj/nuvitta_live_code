@@ -1,5 +1,5 @@
-export default function CatalogImage({ product, products, loading = 'lazy' }) {
-  if (product.showContentsImage) {
+export default function CatalogImage({ product, products, loading = 'lazy', showContents = false }) {
+  if (product.showContentsImage || showContents) {
     return <div className="bundle-photo-grid" role="img" aria-label={`${product.name}: ${product.includedProducts.join(', ')}`}>
       {product.items.map(id => {
         const item = products.find(p => p.id === id)
