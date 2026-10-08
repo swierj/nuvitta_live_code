@@ -36,7 +36,7 @@ export default function ProductDetail({ products, add, cart }) {
     <div className="breadcrumbs"><Link to="/products">Skincare</Link><span>/</span>{product.name}</div>
     <div className="detail-grid">
       <ProductGallery product={product} products={products} />
-      <div className="detail-copy">
+      <div className={`detail-copy${product.bundle ? ' detail-copy-bundle' : ''}`}>
         <p className="eyebrow">{product.category}</p><h1>{product.name}</h1>
         <p className="detail-price">{money(product.price)} <span>{product.size}</span>{savings > 0 && <span className="bundle-saving-note">Save {money(savings)} with the bundle</span>}</p>
         {product.description && <p className="product-description">{product.description}</p>}
@@ -47,7 +47,7 @@ export default function ProductDetail({ products, add, cart }) {
         <p className="status" role="status">{current + quantity > MAX_QUANTITY ? 'Maximum 20 of each item in your bag.' : message} {message && <Link to="/cart">View bag →</Link>}</p>
         {product.superIngr?.length > 0 && <section className="superstar-ingredients"><h3>Superstar ingredients</h3><ProductText value={product.superIngr} /></section>}
         <ProductReviews key={product.id} reviews={product.reviews} />
-        {product.bundle && <section className="bundle-includes"><h3>Inside the bundle</h3>{product.items.map((item, index) => <Link key={item} to={`/products/${item}`}><span>{product.includedProducts[index]}<small>{product.sizeProducts[index]}</small></span><span>{bundleItems[index] ? money(bundleItems[index].price) : product.priceProducts[index]} ↗</span></Link>)}{separateTotal !== null && <dl className="bundle-price-summary"><div><dt>Bought separately</dt><dd>{money(separateTotal)}</dd></div><div><dt>Bundle price</dt><dd>{money(product.price)}</dd></div>{savings > 0 && <div className="bundle-summary-saving"><dt>You save</dt><dd>{money(savings)}</dd></div>}</dl>}</section>}
+        {product.bundle && <section className="bundle-includes"><h3>Inside the bundle</h3>{product.items.map((item, index) => <Link key={item} to={`/products/${item}`}><span>{product.includedProducts[index]}<small>{product.sizeProducts[index]}</small></span><span>{bundleItems[index] ? money(bundleItems[index].price) : product.priceProducts[index]} ↗</span></Link>)}</section>}
       </div>
     </div>
     <div className="product-information"><h2>A closer look.</h2>
