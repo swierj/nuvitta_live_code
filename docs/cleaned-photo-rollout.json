@@ -1,0 +1,151 @@
+{
+  "summary": "28 cleaned PNG masters encoded as lossless WebP and used by the catalog; originals retained.",
+  "changedFiles": [
+    "shared/catalog.json",
+    "scripts/optimize-cleaned-photos.py",
+    "docs/cleaned-photo-rollout.json",
+    "docs/cleaned-photo-preview.png",
+    "client/public/images/catalog/10-niacinamide-serum_cdx.webp",
+    "client/public/images/catalog/acne-oily-skin-treatment-bundle_cdx.webp",
+    "client/public/images/catalog/aha-exfoliating-cream_cdx.webp",
+    "client/public/images/catalog/aha-facial-toner_cdx.webp",
+    "client/public/images/catalog/anti-aging-vitamin-face-cream_cdx.webp",
+    "client/public/images/catalog/avocado-cream-facial-cleanser_cdx.webp",
+    "client/public/images/catalog/blood-orange-resurface-scrub_cdx.webp",
+    "client/public/images/catalog/cafe-gommage-mask_cdx.webp",
+    "client/public/images/catalog/calming-lavender-facial-toner_cdx.webp",
+    "client/public/images/catalog/citrus-gel-facial-cleanser_cdx.webp",
+    "client/public/images/catalog/cucumber-facial-toner_cdx.webp",
+    "client/public/images/catalog/daily-rose-booster_cdx.webp",
+    "client/public/images/catalog/day-night-hydrating-cream_cdx.webp",
+    "client/public/images/catalog/firming-eye-cream_cdx.webp",
+    "client/public/images/catalog/french-plum-face-oil_cdx.webp",
+    "client/public/images/catalog/hyaluronic-acid-serum_cdx.webp",
+    "client/public/images/catalog/makeup-cleansing-oil_cdx.webp",
+    "client/public/images/catalog/nourishing-night-cream_cdx.webp",
+    "client/public/images/catalog/retinol-2-5-cream_cdx.webp",
+    "client/public/images/catalog/rose-antioxidant-facial-toner_cdx.webp",
+    "client/public/images/catalog/rose-nourishing-face-cream_cdx.webp",
+    "client/public/images/catalog/sensitive-acne-skin-moisturizer_cdx.webp",
+    "client/public/images/catalog/squalane-face-oil_cdx.webp",
+    "client/public/images/catalog/triple-enzyme-peel_cdx.webp",
+    "client/public/images/catalog/velvet-face-and-body-cream_cdx.webp",
+    "client/public/images/catalog/vitamin-c-cream_cdx.webp",
+    "client/public/images/catalog/vitamin-c-serum_cdx.webp",
+    "client/public/images/catalog/wild-orange-face-oil_cdx.webp"
+  ],
+  "images": [
+    {
+      "file": "client/public/images/catalog/10-niacinamide-serum_cdx.webp",
+      "bytes": 890218
+    },
+    {
+      "file": "client/public/images/catalog/acne-oily-skin-treatment-bundle_cdx.webp",
+      "bytes": 957734
+    },
+    {
+      "file": "client/public/images/catalog/aha-exfoliating-cream_cdx.webp",
+      "bytes": 878692
+    },
+    {
+      "file": "client/public/images/catalog/aha-facial-toner_cdx.webp",
+      "bytes": 854738
+    },
+    {
+      "file": "client/public/images/catalog/anti-aging-vitamin-face-cream_cdx.webp",
+      "bytes": 905236
+    },
+    {
+      "file": "client/public/images/catalog/avocado-cream-facial-cleanser_cdx.webp",
+      "bytes": 966906
+    },
+    {
+      "file": "client/public/images/catalog/blood-orange-resurface-scrub_cdx.webp",
+      "bytes": 889920
+    },
+    {
+      "file": "client/public/images/catalog/cafe-gommage-mask_cdx.webp",
+      "bytes": 892076
+    },
+    {
+      "file": "client/public/images/catalog/calming-lavender-facial-toner_cdx.webp",
+      "bytes": 950632
+    },
+    {
+      "file": "client/public/images/catalog/citrus-gel-facial-cleanser_cdx.webp",
+      "bytes": 937956
+    },
+    {
+      "file": "client/public/images/catalog/cucumber-facial-toner_cdx.webp",
+      "bytes": 929214
+    },
+    {
+      "file": "client/public/images/catalog/daily-rose-booster_cdx.webp",
+      "bytes": 937570
+    },
+    {
+      "file": "client/public/images/catalog/day-night-hydrating-cream_cdx.webp",
+      "bytes": 890688
+    },
+    {
+      "file": "client/public/images/catalog/firming-eye-cream_cdx.webp",
+      "bytes": 922714
+    },
+    {
+      "file": "client/public/images/catalog/french-plum-face-oil_cdx.webp",
+      "bytes": 905578
+    },
+    {
+      "file": "client/public/images/catalog/hyaluronic-acid-serum_cdx.webp",
+      "bytes": 895304
+    },
+    {
+      "file": "client/public/images/catalog/makeup-cleansing-oil_cdx.webp",
+      "bytes": 905710
+    },
+    {
+      "file": "client/public/images/catalog/nourishing-night-cream_cdx.webp",
+      "bytes": 922842
+    },
+    {
+      "file": "client/public/images/catalog/retinol-2-5-cream_cdx.webp",
+      "bytes": 905018
+    },
+    {
+      "file": "client/public/images/catalog/rose-antioxidant-facial-toner_cdx.webp",
+      "bytes": 924332
+    },
+    {
+      "file": "client/public/images/catalog/rose-nourishing-face-cream_cdx.webp",
+      "bytes": 928294
+    },
+    {
+      "file": "client/public/images/catalog/sensitive-acne-skin-moisturizer_cdx.webp",
+      "bytes": 908924
+    },
+    {
+      "file": "client/public/images/catalog/squalane-face-oil_cdx.webp",
+      "bytes": 917020
+    },
+    {
+      "file": "client/public/images/catalog/triple-enzyme-peel_cdx.webp",
+      "bytes": 897716
+    },
+    {
+      "file": "client/public/images/catalog/velvet-face-and-body-cream_cdx.webp",
+      "bytes": 904636
+    },
+    {
+      "file": "client/public/images/catalog/vitamin-c-cream_cdx.webp",
+      "bytes": 910442
+    },
+    {
+      "file": "client/public/images/catalog/vitamin-c-serum_cdx.webp",
+      "bytes": 896666
+    },
+    {
+      "file": "client/public/images/catalog/wild-orange-face-oil_cdx.webp",
+      "bytes": 780014
+    }
+  ]
+}
