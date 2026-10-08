@@ -46,8 +46,8 @@ export default function ProductDetail({ products, add, cart }) {
         </div>
         <p className="status" role="status">{current + quantity > MAX_QUANTITY ? 'Maximum 20 of each item in your bag.' : message} {message && <Link to="/cart">View bag →</Link>}</p>
         {product.superIngr?.length > 0 && <section className="superstar-ingredients"><h3>Superstar ingredients</h3><ProductText value={product.superIngr} /></section>}
-        <ProductReviews key={product.id} reviews={product.reviews} />
         {product.bundle && <section className="bundle-includes"><h3>Inside the bundle</h3>{product.items.map((item, index) => <Link key={item} to={`/products/${item}`}><span>{product.includedProducts[index]}<small>{product.sizeProducts[index]}</small></span><span>{bundleItems[index] ? money(bundleItems[index].price) : product.priceProducts[index]} ↗</span></Link>)}</section>}
+        <ProductReviews key={product.id} reviews={product.reviews} />
       </div>
     </div>
     <div className="product-information"><h2>A closer look.</h2>
