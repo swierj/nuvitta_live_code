@@ -19,6 +19,10 @@ export default function ProductDetail({ products, add, cart }) {
   useEffect(() => { setQuantity(1); setMessage('') }, [id])
   if (!product) return <section className="empty-state wrap"><h1>Product not found.</h1><Link className="button" to="/products">Explore skincare ↗</Link></section>
   const current = cart.find(item => item.id === product.id)?.quantity || 0
+  const bundleItems = product.bundle ? product.items.map(item => products.find(p => p.id === item)) : []
+  const separateTotal = bundleItems.length > 0 && bundleItems.every(item => Number.isInteger(item?.price))
+    ? bundleItems.reduce((total, item) => total + item.price, 0) : null
+  const savings = separateTotal === null ? 0 : separateTotal - product.price
   const sections = [
     ['Product highlights', product.prodHighlight],
     ['How to use', product.prodDirec],
@@ -34,7 +38,7 @@ export default function ProductDetail({ products, add, cart }) {
       <ProductGallery product={product} products={products} />
       <div className="detail-copy">
         <p className="eyebrow">{product.category}</p><h1>{product.name}</h1>
-        <p className="detail-price">{money(product.price)} <span>{product.size}</span></p>
+        <p className="detail-price">{money(product.price)} <span>{product.size}</span>{savings > 0 && <span className="bundle-saving-note">Save {money(savings)} with the bundle</span>}</p>
         {product.description && <p className="product-description">{product.description}</p>}
         <div className="add-row">
           <label>Quantity<select value={quantity} onChange={e => { setQuantity(Number(e.target.value)); setMessage('') }}>{Array.from({ length: MAX_QUANTITY }, (_, i) => <option key={i} value={i + 1}>{i + 1}</option>)}</select></label>
@@ -43,7 +47,7 @@ export default function ProductDetail({ products, add, cart }) {
         <p className="status" role="status">{current + quantity > MAX_QUANTITY ? 'Maximum 20 of each item in your bag.' : message} {message && <Link to="/cart">View bag →</Link>}</p>
         {product.superIngr?.length > 0 && <section className="superstar-ingredients"><h3>Superstar ingredients</h3><ProductText value={product.superIngr} /></section>}
         <ProductReviews key={product.id} reviews={product.reviews} />
-        {product.bundle && <section className="bundle-includes"><h3>Inside the bundle</h3>{product.items.map((item, index) => <Link key={item} to={`/products/${item}`}><span>{product.includedProducts[index]}<small>{product.sizeProducts[index]}</small></span><span>{product.priceProducts[index]} ↗</span></Link>)}</section>}
+        {product.bundle && <section className="bundle-includes"><h3>Inside the bundle</h3>{product.items.map((item, index) => <Link key={item} to={`/products/${item}`}><span>{product.includedProducts[index]}<small>{product.sizeProducts[index]}</small></span><span>{bundleItems[index] ? money(bundleItems[index].price) : product.priceProducts[index]} ↗</span></Link>)}{separateTotal !== null && <dl className="bundle-price-summary"><div><dt>Bought separately</dt><dd>{money(separateTotal)}</dd></div><div><dt>Bundle price</dt><dd>{money(product.price)}</dd></div>{savings > 0 && <div className="bundle-summary-saving"><dt>You save</dt><dd>{money(savings)}</dd></div>}</dl>}</section>}
       </div>
     </div>
     <div className="product-information"><h2>A closer look.</h2>
